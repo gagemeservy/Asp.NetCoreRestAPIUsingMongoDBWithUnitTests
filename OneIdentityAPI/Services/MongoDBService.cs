@@ -1,10 +1,21 @@
 using OneIdentityAPI.Models;
 using Microsoft.Extensions.Options;
 using MongoDB.Driver;
-using MongoDB.Bson;
 
 namespace OneIdentityAPI.Services;
 
+public interface IMongoDBService
+{
+    Task<List<User>> GetAsync();
+    Task<User?> GetDBIDAsync();
+    Task<User?> GetUserIDAsync();
+    Task CreateAsync();
+    Task UpdateAsync();
+    Task UpdateByUserIDAsync();
+    Task RemoveAsync();
+    Task RemoveUserIDAsync();
+    
+}
 public class MongoDBService 
 {
     private readonly IMongoCollection<User> _usersCollection;
@@ -14,18 +25,7 @@ public class MongoDBService
        var client = new MongoClient(mongoDBSettings.Value.ConnectionURI);
         var database = client.GetDatabase(mongoDBSettings.Value.DbName);
         _usersCollection = database.GetCollection<User>(mongoDBSettings.Value.CollectionName);
-        
-        //var client = new MongoClient("mongodb+srv://gage:mongodb@cluster0.rwtzavj.mongodb.net/?retryWrites=true&w=majority");
-        //var database = client.GetDatabase("userdb");
-        //_usersCollection = database.GetCollection<User>("users");
     }
-
-    /*public MongoDBService(MongoDBSettings mongoDBSettings)
-    {
-        MongoClient client = new MongoClient(mongoDBSettings.ConnectionURI.ToString());
-        IMongoDatabase database = client.GetDatabase(mongoDBSettings.DbName.ToString());
-        _usersCollection = database.GetCollection<User>(mongoDBSettings.CollectionName.ToString());
-    }*/
 
     public async Task<List<User>> GetAsync() =>
         await _usersCollection.Find(_ => true).ToListAsync();
