@@ -1,0 +1,11 @@
+{
+  "Version": 1,
+  "Hash": "Gw/ItTJsBBWKgEhug8bDwmgivjujUjy9d+LqCC6lH+M=",
+  "Source": "OneIdentityAPI",
+  "BasePath": "_content/OneIdentityAPI",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": []
+}

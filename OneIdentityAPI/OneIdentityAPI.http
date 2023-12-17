@@ -1,0 +1,8 @@
+@OneIdentityAPI_HostAddress = http://localhost:5109
+
+GET {{OneIdentityAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+GET {{OneIdentityAPI_HostAddress}}/User/
+Accept: application/json
+###
