@@ -6,19 +6,19 @@ namespace OneIdentityAPI.Controllers;
 
 [ApiController]
 [Route("[controller]")]
-public class UserController: ControllerBase
+public class UsersController: ControllerBase
 {
     private readonly MongoDBService _mongoDBService;
 
-    public UserController(MongoDBService mongoDBService) =>
+    public UsersController(MongoDBService mongoDBService) =>
         _mongoDBService = mongoDBService;
 
     [HttpGet]
-    public async Task<List<User>> Get()=>
+    public async Task<List<Users>> Get()=>
         await _mongoDBService.GetAsync();
 
     [HttpGet("{DB_ID:length(24)}")]
-    public async Task<ActionResult<User>> Get(string DB_ID)
+    public async Task<ActionResult<Users>> Get(string DB_ID)
     {
         var user = await _mongoDBService.GetDBIDAsync(DB_ID);
 
@@ -31,7 +31,7 @@ public class UserController: ControllerBase
     }
 
     [HttpGet("{User_ID}")]
-    public async Task<ActionResult<User>> GetByUserID(int User_ID)
+    public async Task<ActionResult<Users>> GetByUserID(int User_ID)
     {
         var user = await _mongoDBService.GetUserIDAsync(User_ID);
 
@@ -44,7 +44,7 @@ public class UserController: ControllerBase
     }
     
     [HttpPost]
-    public async Task<IActionResult> Post(User newUser)
+    public async Task<IActionResult> Post(Users newUser)
     {
         await _mongoDBService.CreateAsync(newUser);
 
@@ -52,7 +52,7 @@ public class UserController: ControllerBase
     }
 
     [HttpPut("{DB_ID:length(24)}")]
-    public async Task<IActionResult> Update(string DB_ID, User updatedUser)
+    public async Task<IActionResult> Update(string DB_ID, Users updatedUser)
     {
         var user = await _mongoDBService.GetDBIDAsync(DB_ID);
 
@@ -69,7 +69,7 @@ public class UserController: ControllerBase
     }
 
     [HttpPut("{User_ID}")]
-    public async Task<IActionResult> UpdateByUserID(int User_ID, User updatedUser)
+    public async Task<IActionResult> UpdateByUserID(int User_ID, Users updatedUser)
     {
         var user = await _mongoDBService.GetUserIDAsync(User_ID);
 

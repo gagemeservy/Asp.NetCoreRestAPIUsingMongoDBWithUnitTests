@@ -25,7 +25,7 @@ namespace OneIdentityAPI.Models;
         public string? lng { get; set; }
     }
 
-    public class User
+    public class Users
     {
         [BsonId]
         [BsonRepresentation(BsonType.ObjectId)]
