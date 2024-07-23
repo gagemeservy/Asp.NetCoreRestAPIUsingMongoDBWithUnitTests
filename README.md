@@ -1,8 +1,15 @@
 # Asp.net Rest API with MongoDB
  This is a Basic Rest API I made with Asp.Net that connects to my MongoDB account. It was made with c# in vs code.
 
-Here's all of the resources I used to help me create this project.
+***USING THE API***
+Run the OneIdentityAPI.sln using Visual Studio to start the API.
+Proceed through installing any needed frameworks and accepting any needed permissions.
 
+Once it starts up, it should automatically open a browser window so you can access all the routes of the API.
+
+There are basic operations to add and remove users from a database, and operations to view all users or specific users.
+
+***RESOURCES USED***
 Creating the API in vscode on Mac:
 https://learn.microsoft.com/en-us/aspnet/core/tutorials/first-mongo-app?view=aspnetcore-8.0&tabs=visual-studio-code
 https://youtu.be/jJK9alBkzU0?si=VsLTgD_2UZ3wlkgY

@@ -1749,24 +1749,32 @@
     ]
   },
   "packageFolders": {
-    "/Users/bernadettklinger/.nuget/packages/": {}
+    "C:\\Users\\gmant\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/bernadettklinger/Desktop/OneIdentityProject/OneIdentityAPI/OneIdentityAPI/OneIdentityAPI.csproj",
+      "projectUniqueName": "C:\\Users\\gmant\\OneDrive\\Desktop\\GithubAPI\\Asp.NetCoreRestAPIUsingMongoDBWithUnitTests\\OneIdentityAPI\\OneIdentityAPI.csproj",
       "projectName": "OneIdentityAPI",
-      "projectPath": "/Users/bernadettklinger/Desktop/OneIdentityProject/OneIdentityAPI/OneIdentityAPI/OneIdentityAPI.csproj",
-      "packagesPath": "/Users/bernadettklinger/.nuget/packages/",
-      "outputPath": "/Users/bernadettklinger/Desktop/OneIdentityProject/OneIdentityAPI/OneIdentityAPI/obj/",
+      "projectPath": "C:\\Users\\gmant\\OneDrive\\Desktop\\GithubAPI\\Asp.NetCoreRestAPIUsingMongoDBWithUnitTests\\OneIdentityAPI\\OneIdentityAPI.csproj",
+      "packagesPath": "C:\\Users\\gmant\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\gmant\\OneDrive\\Desktop\\GithubAPI\\Asp.NetCoreRestAPIUsingMongoDBWithUnitTests\\OneIdentityAPI\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "/Users/bernadettklinger/.nuget/NuGet/NuGet.Config"
+        "C:\\Users\\gmant\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+        "C:\\Program Files\\dotnet\\library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -1779,6 +1787,11 @@
         "warnAsError": [
           "NU1605"
         ]
+      },
+      "restoreAuditProperties": {
+        "enableAudit": "true",
+        "auditLevel": "low",
+        "auditMode": "direct"
       }
     },
     "frameworks": {
@@ -1821,7 +1834,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.205/PortableRuntimeIdentifierGraph.json"
       }
     }
   }
