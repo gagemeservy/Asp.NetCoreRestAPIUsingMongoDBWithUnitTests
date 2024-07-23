@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("OneIdentityAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+02c76510b50fd918a0296f52676fb433585bdc9b")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+00543875620e0d9ee13bb3dbd8a44a081f4ce381")]
 [assembly: System.Reflection.AssemblyProductAttribute("OneIdentityAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("OneIdentityAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

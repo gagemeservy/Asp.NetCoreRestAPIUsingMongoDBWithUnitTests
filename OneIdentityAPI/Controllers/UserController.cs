@@ -17,7 +17,7 @@ public class UsersController: ControllerBase
     public async Task<List<Users>> Get()=>
         await _mongoDBService.GetAsync();
 
-    [HttpGet("{DB_ID:length(24)}")]
+    /*[HttpGet("{DB_ID:length(24)}")]
     public async Task<ActionResult<Users>> Get(string DB_ID)
     {
         var user = await _mongoDBService.GetDBIDAsync(DB_ID);
@@ -28,7 +28,7 @@ public class UsersController: ControllerBase
         }
 
         return user;
-    }
+    }*/
 
     [HttpGet("{User_ID}")]
     public async Task<ActionResult<Users>> GetByUserID(int User_ID)
@@ -37,7 +37,7 @@ public class UsersController: ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return NotFound("User does not exist.");
         }
 
         return user;
@@ -46,12 +46,21 @@ public class UsersController: ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post(Users newUser)
     {
-        await _mongoDBService.CreateAsync(newUser);
+        var user = await _mongoDBService.GetUserIDAsync(newUser.id);
 
-        return CreatedAtAction(nameof(Get), new { id = newUser.DbId }, newUser);
+        if (user is null)
+        {
+            await _mongoDBService.CreateAsync(newUser);
+
+            return CreatedAtAction(nameof(Get), new { id = newUser.DbId }, newUser);
+        }
+        else
+        {
+            return BadRequest("User ID already exists.");
+        }       
     }
 
-    [HttpPut("{DB_ID:length(24)}")]
+    /*[HttpPut("{DB_ID:length(24)}")]
     public async Task<IActionResult> Update(string DB_ID, Users updatedUser)
     {
         var user = await _mongoDBService.GetDBIDAsync(DB_ID);
@@ -66,7 +75,7 @@ public class UsersController: ControllerBase
         await _mongoDBService.UpdateAsync(DB_ID, updatedUser);
 
         return NoContent();
-    }
+    }*/
 
     [HttpPut("{User_ID}")]
     public async Task<IActionResult> UpdateByUserID(int User_ID, Users updatedUser)
@@ -75,7 +84,7 @@ public class UsersController: ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return NotFound("User does not exist.");
         }
 
         updatedUser.DbId = user.DbId;
@@ -85,7 +94,7 @@ public class UsersController: ControllerBase
         return NoContent();
     }
 
-    [HttpDelete("{DB_ID:length(24)}")]
+    /*[HttpDelete("{DB_ID:length(24)}")]
     public async Task<IActionResult> Delete(string DB_ID)
     {
         var user = await _mongoDBService.GetDBIDAsync(DB_ID);
@@ -98,7 +107,7 @@ public class UsersController: ControllerBase
         await _mongoDBService.RemoveAsync(DB_ID);
 
         return NoContent();
-    }
+    }*/
 
     [HttpDelete("{User_ID}")]
     public async Task<IActionResult> DeleteByUserID(int User_ID)
@@ -107,7 +116,7 @@ public class UsersController: ControllerBase
 
         if (user is null)
         {
-            return NotFound();
+            return NotFound("User does not exist.");
         }
 
         await _mongoDBService.RemoveUserIDAsync(User_ID);
